@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starcrash</title>
+  <style>
+    body { 
+      margin: 0; 
+      overflow: hidden; 
+      background-color: black; 
+    }
+
+    #gameOver { 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 3rem;
+      display: none;
+    }
+
+    #ui { 
+      position: absolute; 
+      top: 10px; 
+      left: 10px;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    #score, #health { 
+      margin-right: 20px;
+    }
+
+    #restartBtn {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      color: white;
+      background-color: green;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
+    #restartBtn:hover {
+      background-color: darkgreen;
+    }
+
+    /* Instructions modal */
+    #instructionsModal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.5rem;
+      display: none;
+      text-align: center;
+    }
+
+    #instructionsModal button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #instructionsModal button:hover {
+      background-color: darkgreen;
+    }
+
+    /* Media queries for responsive UI */
+    @media screen and (max-width: 768px) {
+      #ui {
+        font-size: 1rem;
+      }
+
+      #gameOver {
+        font-size: 2rem;
+      }
+
+      #restartBtn {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    Score: <span id="score">0</span>
+    Health: <span id="health">100</span>
+  </div>
+  <div id="gameOver">Game Over</div>
+  <button id="restartBtn" onclick="restartGame()">Restart</button>
+
+  <!-- Instructions Modal -->
+  <div id="instructionsModal">
+    <p><strong>Welcome to Starcrash!</strong></p>
+    <p>Control your spaceship by moving your mouse. Avoid asteroids and collect power-ups to score points!</p>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- Three.js script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Link to the game script (game.js) -->
+  <script src="game.js"></script>
+</body>
+</html>
